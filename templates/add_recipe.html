@@ -7,6 +7,18 @@
     <form class="col s12" method="POST" action="">
         <div class="row">
             <div class="input-field col s12">
+                <i class="fas fa-filter prefix teal-text text-darken-4"></i>
+                <select id="category_name" name="category_name" class="validate" required>
+                    <option value="" disabled selected>Choose your option</option>
+                    {% for category in categories %}
+                    <option value="{{ category.category_name }}">{{ category.category_name }}</option>
+                    {% endfor %}
+                </select>
+                <label for="category_name">Select Category</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
                 <i class="fas fa-utensils prefix teal-text text-darken-4"></i>
                 <input id="recipe_name" name="recipe_name" minlength="5" maxlength="20" type="text" class="validate"
                     required>
@@ -27,7 +39,7 @@
                 <div class="switch">
                     <i class="fas fa-seeding prefix teal-text text-darken-4"></i>
                     <label for="is_vegetarian">
-                        <input type="checkbox" id="is_vegetarian" name="is_vegetarian" >
+                        <input type="checkbox" id="is_vegetarian" name="is_vegetarian">
                         <span class="lever"></span>
                         Vegetarian
                     </label>
