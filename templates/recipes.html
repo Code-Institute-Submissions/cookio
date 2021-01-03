@@ -1,27 +1,23 @@
 {% extends "base.html" %}
 {% block content %}
 
+<ul class="collapsible">
     {% for recipe in recipes %}
-        {{ recipe.recipe_name }}<br>
-        {{ recipe.category_name }}<br>
-        {{ recipe.recipe_description }}<br>
-        {{ recipe.is_vegan }}<br>
-        {{ recipe.due_date }}<br>
+    <li>
+      <div class="collapsible-header white-text teal darken-4 text-shadow">
+          <i class="fas fa-arrow-down"></i>
+          <strong>{{ recipe.recipe_name }}</strong> : {{ recipe.due_date }}
+          {% if recipe.is_vegan == "on" %}
+          <i class="fas fa-leaf ligh-blue-text text-lighten-2 tooltipped"
+          data-position="right" data-tooltip="VEGETARIAN"></i>
+          {% endif %}
+        </div>
+      <div class="collapsible-body">
+          <strong>{{ recipe.category_name }}</strong>
+          <P>{{ recipe.recipe_description }}</P>
+        </div>
+    </li>
     {% endfor %}
-
-  <ul class="collapsible">
-    <li>
-      <div class="collapsible-header white-text teal darken-4 text-shadow"><i class="fas fa-arrow-down"></i>First</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header white-text teal darken-4 text-shadow"><i class="fas fa-arrow-down"></i>Second</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
-    <li>
-      <div class="collapsible-header white-text teal darken-4 text-shadow"><i class="fas fa-arrow-down"></i>Third</div>
-      <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-    </li>
   </ul>
 
 {% endblock %}
