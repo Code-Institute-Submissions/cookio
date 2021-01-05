@@ -14,3 +14,28 @@
     margin: 5px;
     line-height: 40px;
 }
+
+ body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
+
+  .brand-logo {
+      margin-left: 10px;
+      font-size: large;
+      font-family: 'Rubik', sans-serif;
+  }
+
+  .brand-logo-footer {
+          font-family: 'Rubik', sans-serif;
+  }
+
+  .recipe-list {
+          font-family: 'Rubik', sans-serif;
+          font-size: large;
+  }
