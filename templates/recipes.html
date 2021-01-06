@@ -20,6 +20,7 @@
     </form>
 </div>
 
+{% if recipes|length > 0 %}
 <ul class="collapsible">
     {% for recipe in recipes %}
     <li>
@@ -49,5 +50,8 @@
     </li>
     {% endfor %}
 </ul>
+{% else %}
+<h3 class="teal-text text-darken-4 center-align upper-title">No Recipe with this word</h3>
+{% endif %}
 
 {% endblock %}
