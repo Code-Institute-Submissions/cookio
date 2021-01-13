@@ -1,21 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-  
-    <div class="row card-pane s12 m12">
-      <div class="card">
+
+<div class="row card-pane s12 m12">
+    <div class="card">
         <div class="card-image">
-          <img src="/static/images/cookio-image.webp">
+            <img src="/static/images/cookio-image.webp">
         </div>
         <div class="card-content">
-          <p>This is cookio! the BEST collaborative recipe database. 
-             Cookio! gives users a very simple way to create, edit and save recipes fivided into categories 
-             to create an evergrowing digital cookbook.
-            Simply create an account and start sharing your culinary wisdom woith the rest of us.</p>
+            <p>This is cookio! the BEST collaborative recipe database.
+                Cookio! gives users a very simple way to create, edit and save recipes fivided into categories
+                to create an evergrowing digital cookbook.
+                Simply create an account and start sharing your culinary wisdom with the rest of us.</p>
         </div>
-      </div>
     </div>
- 
+</div>
+
 
 <h3 class="teal-text text-darken-4 center-align upper-title">List of Recipes</h3>
 <div class="row card-panel grey lighten-5">
@@ -44,8 +44,8 @@
             <div class="col s3">
                 <i class="fas fa-arrow-down"></i>
                 {% if session.user|lower == recipe.created_by|lower %}
-                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}"
-                    class="btn-small green accent-4" onclick="return confirm(' Are you sure want to delete?');" >Delete</a>
+                <a href="{{ url_for('delete_recipe', recipe_id=recipe._id) }}" class="btn-small green accent-4"
+                    onclick="return confirm(' Are you sure want to delete?');">Delete</a>
                 <a href="{{ url_for('edit_recipe', recipe_id=recipe._id) }}" class="btn-small teal accent-4">Edit</a>
                 {% endif %}
             </div>
