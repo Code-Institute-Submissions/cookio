@@ -163,15 +163,22 @@ def edit_recipe(recipe_id):
         }
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Your Cookio has been Updated!")
+    try:
+        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
+    except:
+         return render_template("404.html")
 
-    recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_recipe.html", recipe=recipe, categories=categories)
 
 
 @app.route("/delete_recipe/<recipe_id>")
 def delete_recipe(recipe_id):
-    mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+
+    try:
+        mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
+    except:
+        return render_template("404.html")    
     flash("Recipe successfully deleted")
     return redirect(url_for("get_recipes"))
 
@@ -205,13 +212,19 @@ def edit_category(category_id):
         flash("Category Updated")
         return redirect(url_for("get_categories"))
 
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    try:
+        category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    except:
+        return render_template("404.html")    
     return render_template("edit_category.html", category=category)
 
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
-    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    try:
+        mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    except:
+        return render_template("404.html")    
     flash("Category Removed")
     return redirect(url_for("get_categories"))
 
