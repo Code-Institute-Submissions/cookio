@@ -14,7 +14,10 @@ app = Flask(__name__)
 app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
-app.config["MONGO_URI"] = "mongodb+srv://root:root12345@myfirstcluster.q2pae.mongodb.net/recipe_manager?retryWrites=true&w=majority"
+
+app.config["MONGO_URI"] = "mongodb+srv://root:root12345@myfirstcluster.q2pae.mongodb.net/recipe_manager?retryWrites=true&w=majority" 
+app.config["MONGO_DBNAME"]="recipe_manager"
+app.config["SECRET_KEY"]="1234567890"
 mongo = PyMongo(app)
 
 
@@ -88,15 +91,37 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-    # get username for user in session from database
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+  
+    user = mongo.db.users.find_one(
+        {"username": session["user"]})
+
+    if request.method == "POST":
+        user["first_name"] = request.form.get("first_name")
+        user["last_name"] = request.form.get("last_name")
+        user["date_of_birth"] = request.form.get("date_of_birth")
+
+        mongo.db.users.update({"_id":user["_id"]}, user)
+        flash("Your Profile has been Updated!")
+    
+    try:
+        first_name = user["first_name"]
+    except:
+        first_name = ""
+
+    try:
+        last_name = user["last_name"]
+    except:
+        last_name = ""
+
+    try:
+        date_of_birth = user["date_of_birth"]
+    except:
+        date_of_birth = ""
 
     if session["user"]:
-        return render_template("profile.html", username=username)
+        return render_template("profile.html", username=user["username"], first_name=first_name, last_name=last_name, date_of_birth=date_of_birth )
 
     return redirect(url_for("login"))
-
 
 @app.route("/logout")
 def logout():
@@ -192,6 +217,8 @@ def delete_category(category_id):
 
 
 if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
+    app.run(host=os.environ.get("IP","127.0.0.1"),
+            port=int(os.environ.get("PORT",3000)),
             debug=True)
+
+            

@@ -3,9 +3,46 @@
 
     <div class="row">
         <div class="col s12 m8 offset-m2">
+            <form class="col s12" method="POST">
             <div class="card-panel teal lighten-5">
                <h3 class="center-align teal-text text-darken-4">
-                   Welcome! You are logged in as {{ username }}
+                   <i><u>{{ username }}'s Profile</u></i>                   
+                   <div class="row">
+                        <div class="input-field col s12">    
+                            <input id="username" name="username"  type="text" class="validate" readonly value="{{ username }}"
+                            required>
+                            <label for="username"><b>Username</b></label>
+                        </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">    
+                        <input id="first_name" name="first_name" minlength="5" maxlength="50" type="text" class="validate" value="{{ first_name}}"
+                            required>
+                        <label for="first_name">First Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">    
+                        <input id="last_name" name="last_name" minlength="5" maxlength="50" type="text" class="validate" value="{{ last_name }}"
+                            required>
+                        <label for="last_name">Last Name</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">    
+                        <input id="date_of_birth" name="date_of_birth" minlength="5" maxlength="50" type="date" class="validate" value="{{ date_of_birth }}"
+                            required>
+                        <label for="date_of_birth">Date of Birth</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12 center-align">
+                        <button type="submit" class="btn-large teal darken-1 text-shadow">
+                            Submit <i class="fas fa-plus right"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
                </h3>
             </div>
         </div>
