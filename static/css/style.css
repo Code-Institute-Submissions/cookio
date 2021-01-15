@@ -26,16 +26,22 @@
   }
 
   .brand-logo {
-      margin-left: 10px;
-      font-size: large;
-      font-family: 'Rubik', sans-serif;
+    margin-left: 10px;
+    font-size: large;
+    font-family: 'Rubik', sans-serif;
   }
 
   .brand-logo-footer {
-          font-family: 'Rubik', sans-serif;
+    font-family: 'Rubik', sans-serif;
   }
 
   .upper-title {
-          font-family: 'Rubik', sans-serif;
-          font-size: x-large;
+    font-family: 'Rubik', sans-serif;
+    font-size: x-large;
+  }
+
+  .waves-light {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }

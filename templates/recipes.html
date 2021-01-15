@@ -36,6 +36,12 @@
     </form>
 </div>
 
+<!-- Add Recipe Button -->
+
+<a href="{{ url_for('add_recipe') }}" class="waves-effect teal center waves-light btn">Add Recipe</a>
+
+<!-- Collapsible-->
+
 {% if recipes|length > 0 %}
 <ul class="collapsible">
     {% for recipe in recipes %}
