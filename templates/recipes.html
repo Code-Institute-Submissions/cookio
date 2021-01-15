@@ -37,9 +37,9 @@
 </div>
 
 <!-- Add Recipe Button -->
-
+{% if session.user %}
 <a href="{{ url_for('add_recipe') }}" class="waves-effect teal center waves-light btn">Add Recipe</a>
-
+{% endif %}
 <!-- Collapsible-->
 
 {% if recipes|length > 0 %}
