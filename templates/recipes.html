@@ -8,8 +8,8 @@
             <img src="/static/images/cookio-image.webp">
         </div>
         <div class="card-content">
-            <p>This is cookio! the BEST collaborative recipe database.
-                Cookio! gives users a very simple way to create, edit and save recipes fivided into categories
+            <p>This is COOKIO! the BEST collaborative recipe database.
+                Cookio! gives users a very simple way to create, edit and save recipes divided into categories
                 to create an evergrowing digital cookbook.
                 Simply create an account and start sharing your culinary wisdom with the rest of us.</p>
         </div>
@@ -40,6 +40,7 @@
 {% if session.user %}
 <a href="{{ url_for('add_recipe') }}" class="waves-effect teal center waves-light btn">Add Recipe</a>
 {% endif %}
+
 <!-- Collapsible-->
 
 {% if recipes|length > 0 %}
