@@ -30,7 +30,7 @@ Cookio is a collaborative Recipe book with the possibility to Read-Only as a vis
 
 ### UX
 
-This website has been designed as a multi-page front end website with parallax on scrolling.
+This website has been designed as a multi-page front end website.
 
 The website shows at first the logo and a tagline, nav bar and sample of the drawings on parallax.
 There is a section with a short introduction to what MOngocho is about and a footer with subscribe section and social media links.
