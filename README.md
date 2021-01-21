@@ -1,16 +1,10 @@
-<img src="assets/images/cookio-logo.jpg" alt="logocopy" class="center" />
+<img src="/static/images/cookio-logo.jpg" alt="logo-copy" class="center" />
 
 # Cookio
 
 ### Collaborative Recipe Book
 
-Mongocho is a “Just for fun" website created to offer cartoon and illustration enthusiasts a gallery updated weekly with copyright free drawings and graphic gags.
-
-The site is planned and built to showcase some of my work, to have fun and to connect with an audience that will appreciate my kind of humour to hopefully engage in a conversation.
-
-The website is not intended to be an exhaustive portfolio of my work but a creative exercise to show a limited number of drawings and cartoons in the gallery which I am planning to update weekly with new material.
-
-The main feature is a memory game where I show some of my characters in pairs to be matched in the least possible number of moves.
+Cookio is a collaborative Recipe book with the possibility to Read-Only as a visitor or to create an account to be able to add, edit and delete recipes in a dynamic and interactive way.
 
 ## Table of Contents
 
