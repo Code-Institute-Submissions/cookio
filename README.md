@@ -1,4 +1,4 @@
-<img src="assets/images/mongocho-card-back.png" alt="logocopy" class="center" />
+<img src="assets/images/cookio-logo.jpg" alt="logocopy" class="center" />
 
 # Cookio
 
@@ -17,7 +17,7 @@ The main feature is a memory game where I show some of my characters in pairs to
 1. [**User Experience**](#user-experience)
 2. [**UX**](#ux)
 3. [**Using the website**](#using-the-website)
-4. [**The Gallery**](#the-gallery)
+4. [**The Recipes**](#the-recipes)
 5. [**The Memory Game**](#the-memory-game)
 6. [**User Stories**](#user-stories)
 7. [**As User**](#as-user)
@@ -103,8 +103,10 @@ Go to "Contact Us"
 
 - HTML5, to structure the website.
 - CSS, to style the website.
+- Python3, for building the functionality and logic
+- JavaScript, for building the functionality and logic
 - [jQuery](https://jquery.com/), for gallery.
-- [Visual Studio Code](https://code.visualstudio.com/), for the development environment.
+- [Gitpod](https://gitpod.io//), for the development environment.
 - [Github](https://github.com/), as the version control technology and GitHub Pages as the webserver technology to publish the website.
 - [Bootstrap](https://getbootstrap.com/), to utilize responsive elements.
 - [Font Awesome](https://fontawesome.com/), to utilize icons.
@@ -123,38 +125,36 @@ Go to "Contact Us"
 - [CSS Validator](https://validator.w3.org/)
 
 In all screens tested the website looks exactly in the desired way and responded in expected way and achieving the goals of the site.
-The memory game functions exactly as desired, with 3D effect and rotation appearance.
 
 ## Bugs
 
-There was a bug when displaying the memory card in small screen. The cards animation did not work and the functionality of the game was not responding.
-
-The problem is now fixed.
-The css transform property is not fully supported by IOS browsers, to fully support it, I needed to add some css browser specific prefix to make it work on iOS (-webkit-transform:) . What I did was to copy the css file into https://autoprefixer.github.io/ to help format it and add the necessary css prefixes so it can be supported by most browsers.
-Now is working very well.
-
-There was a bug on displaying the parallax background images in landscape, as they were rendered out of proportion.
-The parallax effect on mobile is not fully supported. The media query uses 600px to stop the parallax effect but when switched to landscape, the width becomes larger and the parallax effect tried to render in the mobile browser so I increased the width of the media query to 1200px to cover most phones and tabs. The parallax effects works fine on android even at the 600px.
+We have not found bugs to report
 
 ## Deployment
 
-I used Visual Studio Code to write all the code. My website is deployed on Github Pages - To visit, click [Here](https://fabibrachetta.github.io/mongocho/).
+I used GitPod  to write all the code. My website is deployed on Heroku - To visit, click [Here](http://cookio.herokuapp.com/).
 
 In order to do this is followed the below steps:
 
 - Create a directory on the local file system.
-- In GitHub “Repositories” I’ve clicked on the green “new” button and created a repository with the name of Mongocho.
-- Select Clone "Clone or download" on Github, copy the link.
-- In VSCode , select File -> Add Folder to Workspace -> Select the newly created directory.
+- In GitHub “Repositories” I’ve clicked on the green “new” button and created a repository with the name of COOKIO.
+- In GitHub “Repositories” I’ve clicked on the green GitPod button and used to write the code.
 - Select Terminal Window.
-- In the terminal type:
-git remote add origin https://github.com/FabiBrachetta/mongocho.git
-git branch -M master
-git push -u origin master
-- In VSCode, I’ve created the site, committed and pushed onto repository.
-- On GitHub, I’ve clicked on Mongocho repository.
-- Under Mongocho repository name, click “Settings”.
-- Under "GitHub Pages", use the Source drop-down menu and select Master Branch for live url.
+- On GitHub, I’ve commmitted and changes are autimatically visible on Heroku hosted page.
+
+## Live Page - Herokuapp
+
+- Registered account in Herokuapp and logged with credentials.
+- Click New on the top right corner and select “Create new app”.
+- Gave the app a name (This will be included in the public URL for application) and click Create app.
+- This step  takes to the dashboard of the app. Open Deploy tab and scroll to the “Deployment method” section.
+- Selected GitHub as the method.
+- Showed a “Connect to GitHub” option where I provided the GitHub repository.  Heroku asked permission to access my GitHub account.
+- Here, I searched for the GitHub repository and click connect
+- Once it found and connected to the GitHub repository, the Deployment section showed where to select - Automatic Deployment (as soon as the changes are pushed to GitHub, Heroku will pick them up and deploy) or Manual Deployment.
+- Click Enable Automatic Deploys. 
+- Selected Python from the available options and saved changes. 
+- DONE. The site is hosted by Heroic and accessible.
 
 ## Wireframes
 
@@ -167,9 +167,7 @@ You can find the wireframes [here](https://github.com/FabiBrachetta/mongocho/blo
 ## Content
 
 - The full website has been completely created by me.
-- The gallery was created using Fancybox from [Fancyapps](https://fancyapps.com/fancybox/3/).
-- The memory game has been created inspired by the tutorial by Marina Ferreira - Software Engineer | Code Sketch Channel Tutorials [here](https://marina-ferreira.github.io/tutorials/js/memory-game/).
-- I used modules of Bootstrap and styled to my taste.
+- 
 
 ## Media
 
