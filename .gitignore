@@ -1,2 +1,8 @@
-env.py
-__pycache__/
+.vscode/
+*.sqlite3
+*.pyc
+__pycache__
+*env.py
+.venv
+*media
+.coverage

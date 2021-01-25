@@ -4,7 +4,9 @@ from flask import (
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from bson.errors import InvalidId
 from werkzeug.security import generate_password_hash, check_password_hash
+
 if os.path.exists("env.py"):
     import env
 
@@ -15,9 +17,6 @@ app.config["MONGO_DBNAME"] = os.environ.get("MONGO_DBNAME")
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 app.secret_key = os.environ.get("SECRET_KEY")
 
-app.config["MONGO_URI"] = "mongodb+srv://root:root12345@myfirstcluster.q2pae.mongodb.net/recipe_manager?retryWrites=true&w=majority" 
-app.config["MONGO_DBNAME"]="recipe_manager"
-app.config["SECRET_KEY"]="1234567890"
 mongo = PyMongo(app)
 
 
@@ -91,7 +90,6 @@ def login():
 
 @app.route("/profile/<username>", methods=["GET", "POST"])
 def profile(username):
-  
     user = mongo.db.users.find_one(
         {"username": session["user"]})
 
@@ -100,28 +98,20 @@ def profile(username):
         user["last_name"] = request.form.get("last_name")
         user["date_of_birth"] = request.form.get("date_of_birth")
 
-        mongo.db.users.update({"_id":user["_id"]}, user)
+        mongo.db.users.update({"_id": user["_id"]}, user)
         flash("Your Profile has been Updated!")
-    
-    try:
-        first_name = user["first_name"]
-    except:
-        first_name = ""
 
-    try:
-        last_name = user["last_name"]
-    except:
-        last_name = ""
-
-    try:
-        date_of_birth = user["date_of_birth"]
-    except:
-        date_of_birth = ""
+    first_name = user.get("first_name", "")
+    last_name = user.get("last_name", "")
+    date_of_birth = user.get("date_of_birth", "")
 
     if session["user"]:
-        return render_template("profile.html", username=user["username"], first_name=first_name, last_name=last_name, date_of_birth=date_of_birth )
+        return render_template("profile.html", username=user["username"],
+                               first_name=first_name, last_name=last_name,
+                               date_of_birth=date_of_birth)
 
     return redirect(url_for("login"))
+
 
 @app.route("/logout")
 def logout():
@@ -140,7 +130,7 @@ def add_recipe():
             "recipe_name": request.form.get("recipe_name"),
             "recipe_description": request.form.get("recipe_description"),
             "is_vegetarian": is_vegetarian,
-            "created_by": session["user"]
+            "created_by": session.get("user")
         }
         mongo.db.recipes.insert_one(recipe)
         flash("Your Cookio has been added!")
@@ -164,9 +154,9 @@ def edit_recipe(recipe_id):
         mongo.db.recipes.update({"_id": ObjectId(recipe_id)}, submit)
         flash("Your Cookio has been Updated!")
     try:
-        recipe = mongo.db.recipes.find_one({"_id": ObjectId(recipe_id)})
-    except:
-         return render_template("404.html")
+        recipe = mongo.db.recipes.find_one_or_404({"_id": ObjectId(recipe_id)})
+    except InvalidId:
+        return render_template("404.html")
 
     categories = mongo.db.categories.find().sort("category_name", 1)
     return render_template("edit_recipe.html", recipe=recipe, categories=categories)
@@ -177,8 +167,9 @@ def delete_recipe(recipe_id):
 
     try:
         mongo.db.recipes.remove({"_id": ObjectId(recipe_id)})
-    except:
-        return render_template("404.html")    
+    except Exception:
+        return render_template("404.html")
+
     flash("Recipe successfully deleted")
     return redirect(url_for("get_recipes"))
 
@@ -214,8 +205,8 @@ def edit_category(category_id):
 
     try:
         category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
-    except:
-        return render_template("404.html")    
+    except InvalidId:
+        return render_template("404.html")
     return render_template("edit_category.html", category=category)
 
 
@@ -223,15 +214,19 @@ def edit_category(category_id):
 def delete_category(category_id):
     try:
         mongo.db.categories.remove({"_id": ObjectId(category_id)})
-    except:
-        return render_template("404.html")    
+    except Exception:
+        return render_template("404.html")
+
     flash("Category Removed")
     return redirect(url_for("get_categories"))
 
 
-if __name__ == "__main__":
-    app.run(host=os.environ.get("IP","127.0.0.1"),
-            port=int(os.environ.get("PORT",3000)),
-            debug=True)
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404
 
-            
+
+if __name__ == "__main__":
+    app.run(host=os.environ.get("IP", "127.0.0.1"),
+            port=int(os.environ.get("PORT", 3000)),
+            debug=True)
