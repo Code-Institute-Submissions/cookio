@@ -47,78 +47,109 @@ The Contact Us section is a form with "required fields" and drop down menu to se
 - A new cartoon appears and, again, a text section appears with an explanation of how I create my drawings.
 - A third cartoon is revealed before reaching the footer.
 
-### The Gallery
-
-- The next page is a gallery with a selection of cartoons and drawings. This gallery displays in a modal with easy navigation in carrousel or in group with easy browsing.
-
-### The Memory Game
-
-- The memory game is a 4 x 4 card grid with back logo and 8 pair of cartoons (4 Female and 4 Male).
-- I got inspiration and guidance from Marina Ferreira (Credited) but I have modified the game with my own design with new styling, number of cards and functionality.
-- I added a Restart Button and a counter to make it more engaging and fun to play.
-
 ## User Stories
 
 ### As User
 
-- As user, I want to see cartoons.
-- As user, I want to be able to look at the cartoons in detail.
-- As user, I want to be able to contact Mongocho to ask for a particular design.
-- As user, I want to play the memory game and get familiarised with the characters created by Mongocho.
+- As a user I want to see recipes from other users.
+- As a user, I want to have one place where to store all my recipes.
+- As a user, I want to have one place where to store all my recipes.
+- As a user I want to be able to edit my recipes.
+- As a user I want to be able to remove the recipes that I don't want to see and share anymore.
+- As a user i want to easily see when a recipe is vegetarian.
+- As a user I want to be able to search the recipes by key words.
+- As a user who wants to select a specific type of meal (category) 
+- As a non registered user I should not be able to add recipes.
+- As a user I want to be able to contact Cookio.
 
-### As a cartoonist
+### As an Admin
 
-- As a cartoonist I want to show a selection of the cartoons that I create.
-- As a cartoonist I want to be able to be contacted through the page.
-- As a cartoonist I want to promote my work.
-- As a cartoonist I want to connect with cartoons enthusiasts.
+- As an Admin, I want to be able to Add categories in additoin to other features.
+
+### login
+
+- The login page is an form where users can enter their username and password.
+
+- **Flash message** If the username is not in the database or if the password has been incorrectly entered a Flash error message is displayed.
+
+- New users who want to register can click on the link "Register here" to get redirected to the page.
+
+### register
+
+- New users can use the form in this page to start using Cookio.
+
+- **Flash message** If the username entered is already in use a message will be displayed.
+
+- To protect passwords in MongoDB, they have been hashed using the bcrypt function.
+
+- Users already registered can directly click on "Login here" to enter credentials.
 
 ## Existing Features
 
 - The navigation bar collapses with a burger button on smaller screens.
-- The gallery displayed in a modal. This has been achieved using Fancybox.
-- Memory game with functionality coded on JavaScript.
-- Contact Us form.
+- Accordion with the recipes in an easy to use setup.
+- Profile Section easy to update. In a future release we will enable use of the customer data (statistics, chat, etc)
 - The Footer, with contact information and social media links.
 
-## Using the Contact Us form
-
-Go to "Contact Us"
-
-- The contact fields are required and sending emssages without completing isn't allowed, showing a message to fill the form before sending.
 
 ## Features Left to Implement
 
-- A future release will include add a shopping cart for customers to select, check out, pay and purchase cartoons.
+- A future release will include upvoting to rate recipes and create a ranking.
 
 ## Technologies Used
 
-### The project was build with:
+#### Database:
 
-- HTML5, to structure the website.
-- CSS, to style the website.
-- Python3, for building the functionality and logic
-- JavaScript, for building the functionality and logic
-- [jQuery](https://jquery.com/), for gallery.
-- [Gitpod](https://gitpod.io//), for the development environment.
-- [Github](https://github.com/), as the version control technology and GitHub Pages as the webserver technology to publish the website.
-- [Bootstrap](https://getbootstrap.com/), to utilize responsive elements.
-- [Font Awesome](https://fontawesome.com/), to utilize icons.
-- [Google Fonts](https://fonts.google.com/), to utilize different fonts.
+- **[MongoDB](<[https://www.mongodb.com/](https://www.mongodb.com/)>)**
 
-## Testing
+#### Mock-up tool:
 
-- Manual testing was performed throughout the creation of this site.
-- No testing has been automated.
-- We have asked 8 people to act as potential users of the website.
-- The site has been tested in Laptops and desktops in in Chrome, Safari, Firefox and IE to ensure it displays as desired.
-- The site has been tested in iOS and Android phones in Safari, Chrome and Firefox.
-- Throughout the build of this site, I used Chrome Develpers Tool.
+- **[Pencil:](https://pencil.evolus.vn/'https://pencil.evolus.vn/)** I have used Pencil to create the mock-ups for the website.
 
-- [HTML Validator](https://validator.w3.org/)
-- [CSS Validator](https://validator.w3.org/)
 
-In all screens tested the website looks exactly in the desired way and responded in expected way and achieving the goals of the site.
+#### Languages:
+
+- **HTML5:** To create the structure of the website.
+- **CSS3:** To add styles to the HTML.
+- **[JavaScript:](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** To add interactivity to the website. 
+- **[Python:](<[https://www.python.org/](https://www.python.org/)>)** The main logic of the website has been created using Python.
+
+- **[Flask:](<[https://palletsprojects.com/p/flask/](https://palletsprojects.com/p/flask/)>)** I have used the web Flask framework.
+
+- **[Jinja:](<[http://jinja.pocoo.org/](http://jinja.pocoo.org/)>)** I have used Jinja templating engine in order to use template inheritance, add **for loops** and **if statements** in the html files and in order to pass information between back and frontend.
+
+### Validation
+
+- **HTML:** I have used https://validator.w3.org/ in order to validate the HTML code.
+
+- **CSS:** I have used https://jigsaw.w3.org/css-validator/ in order to validate the CSS code.
+
+- **JavaScript:** I have used https://jshint.com/ in order to check the JavaScript code.
+
+
+### testing
+
+### Travis
+#### How to set up Travis
+- Went to Travis-ci.com and Sign up with GitHub.
+- Accept the Authorization of Travis CI. You’ll be redirected to GitHub. F
+- Click on profile picture in the top right of Travis Dashboard, click Settings and then the green Activate button, and select the repositories to use with Travis CI.
+
+#### unittest
+
+I have used unittest in order to test the **CRUD** operations.
+
+My mentor Guido kinldy assisted setting up unittest for the project 
+
+
+The tests are saved in the file **test_app.py** and this file is saved in the folder **tests**.
+In order to run the tests I typed the following on the terminal:
+
+`python -m tests.test_app`
+
+#### Dev Tools
+
+I have also used development tools in Google Chrome to check how the website would look on different devices (portrait and landscape mode). In addition to that testing I have also asked friends and family to have a look at the website to let me know if everything looks fine on their browsers and devices.
 
 ## Bugs
 
@@ -148,7 +179,7 @@ In order to do this is followed the below steps:
 - Once it found and connected to the GitHub repository, the Deployment section showed where to select - Automatic Deployment (as soon as the changes are pushed to GitHub, Heroku will pick them up and deploy) or Manual Deployment.
 - Click Enable Automatic Deploys. 
 - Selected Python from the available options and saved changes. 
-- DONE. The site is hosted by Heroic and accessible.
+- DONE. The site is hosted by Herokuapp and accessible.
 
 ## Wireframes
 
@@ -160,14 +191,9 @@ You can find the wireframes [here](https://github.com/FabiBrachetta/mongocho/blo
 
 ## Content
 
-- The full website has been completely created by me.
-- 
+- This website has been completely created by me and inspired by the miniproject of Code Institute.
 
-## Media
-
-- The images and logos used are all my creation. I own all rights to use and publish the images.
-- I authorise free use of any image for non commercial use (credits would be appreciated).
 
 ## Acknowledgements
 
-- Special thanks to my mentor [@guidocecilio_mentor](https://github.com/guidocecilio) for his guidance and support.
+- A very special thanks to my mentor [@guidocecilio_mentor](https://github.com/guidocecilio) for his guidance and support.
