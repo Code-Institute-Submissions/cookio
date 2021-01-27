@@ -31,15 +31,6 @@ class TestApp(unittest.TestCase):
 
     @classmethod
     def tearDownClass(self):
-        # TODO: Make sure the dabasabe is deleted. No working at the moment
-        # raise OperationFailure(errmsg, code, response, max_wire_version)
-        # pymongo.errors.OperationFailure: user is not allowed to do action 
-        # [dropDatabase] on [test_recipe_manager.], 
-        # full error: {'ok': 0, 'errmsg': 'user is not allowed to do action 
-        # [dropDatabase] on [test_recipe_manager.]', 'code': 8000, 
-        # 'codeName': 'AtlasError'}
-
-        # self.mongo_client.drop_database('test_recipe_manager')
         pass
 
     def test_insert_recipe(self):

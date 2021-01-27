@@ -5,6 +5,7 @@
 ### Collaborative Recipe Book
 
 Cookio is a collaborative Recipe book with the possibility to Read-Only as a visitor or to create an account to be able to add, edit and delete recipes in a dynamic and interactive way.
+The Admin will have additional tight to add, delete categories.
 
 ## Table of Contents
 
@@ -15,9 +16,10 @@ Cookio is a collaborative Recipe book with the possibility to Read-Only as a vis
 5. [**The Memory Game**](#the-memory-game)
 6. [**User Stories**](#user-stories)
 7. [**As User**](#as-user)
-8. [**As a Cartoonist**](#as-a-cartoonist)
+8. [**As an Admin**](#as-an-admin)
 9. [**Existing Features**](#existing-features)
-10. [**Using the Contact Us form**](#using-the-contact-us-form)
+10. [**Login**](#login)
+10. [**register**](#register)
 11. [**Technologies Used**](#technologies-used)
 12. [**Testing**](#testing)
 13. [**Bugs**](#bugs)
@@ -30,14 +32,16 @@ Cookio is a collaborative Recipe book with the possibility to Read-Only as a vis
 
 ### UX
 
-This website has been designed as a multi-page front end website.
+This website has been designed as a multi-page front end website with login possibility.
 
-The website shows at first the logo and a tagline, nav bar and sample of the drawings on parallax.
-There is a section with a short introduction to what MOngocho is about and a footer with subscribe section and social media links.
+The website shows the logo in the nav bar and links to the different sections of the site.
 
-There are several hover effects in the footer, over the titles and in social media icons.
+The recipes are displayed in an accordion with collapsible field to show the preparation of them.
 
-The Contact Us section is a form with "required fields" and drop down menu to select style of painting desired.
+There is a User Profile to enter personal details and the possibility of edit the information.
+
+While lohgging in, as an user it will show "Add Recipe" to create, delete and update recipes.
+
 
 ### Using the website
 
@@ -53,9 +57,8 @@ The Contact Us section is a form with "required fields" and drop down menu to se
 
 - As a user I want to see recipes from other users.
 - As a user, I want to have one place where to store all my recipes.
-- As a user, I want to have one place where to store all my recipes.
-- As a user I want to be able to edit my recipes.
-- As a user I want to be able to remove the recipes that I don't want to see and share anymore.
+- As a user I want to be able to edit my own recipes.
+- As a user I want to be able to remove my own recipes that I don't want to see and share anymore.
 - As a user i want to easily see when a recipe is vegetarian.
 - As a user I want to be able to search the recipes by key words.
 - As a user who wants to select a specific type of meal (category) 
@@ -64,7 +67,7 @@ The Contact Us section is a form with "required fields" and drop down menu to se
 
 ### As an Admin
 
-- As an Admin, I want to be able to Add categories in additoin to other features.
+- As an Admin, I want to be able to Add categories in addition to other features.
 
 ### login
 
@@ -126,7 +129,6 @@ The Contact Us section is a form with "required fields" and drop down menu to se
 
 - **JavaScript:** I have used https://jshint.com/ in order to check the JavaScript code.
 
-
 ### testing
 
 ### Travis
@@ -141,15 +143,22 @@ I have used unittest in order to test the **CRUD** operations.
 
 My mentor Guido kinldy assisted setting up unittest for the project 
 
-
 The tests are saved in the file **test_app.py** and this file is saved in the folder **tests**.
 In order to run the tests I typed the following on the terminal:
 
 `python -m tests.test_app`
 
+### Results
+- pymongo.errors.OperationFailure: user is not allowed to do action 
+- [dropDatabase] on [test_recipe_manager.], 
+- full error: {'ok': 0, 'errmsg': 'user is not allowed to do action 
+- [dropDatabase] on [test_recipe_manager.]', 'code': 8000, 
+- 'codeName': 'AtlasError'}
+- self.mongo_client.drop_database('test_recipe_manager')
+
 #### Dev Tools
 
-I have also used development tools in Google Chrome to check how the website would look on different devices (portrait and landscape mode). In addition to that testing I have also asked friends and family to have a look at the website to let me know if everything looks fine on their browsers and devices.
+I have used development tools in Google Chrome to inspect and try wothout compromising the code. I have also asked relatives and friends to check how the website would look on different devices (portrait and landscape mode). In addition to that testing I have also asked people to visit the website to ensure it works as wanted and if looks OK on their browsers and devices.
 
 ## Bugs
 
@@ -192,7 +201,6 @@ You can find the wireframes [here](https://github.com/FabiBrachetta/mongocho/blo
 ## Content
 
 - This website has been completely created by me and inspired by the miniproject of Code Institute.
-
 
 ## Acknowledgements
 
