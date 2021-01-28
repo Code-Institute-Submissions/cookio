@@ -19,14 +19,14 @@ The Admin will have additional tight to add, delete categories.
 8. [**As an Admin**](#as-an-admin)
 9. [**Existing Features**](#existing-features)
 10. [**Login**](#login)
-10. [**register**](#register)
-11. [**Technologies Used**](#technologies-used)
-12. [**Testing**](#testing)
-13. [**Bugs**](#bugs)
-14. [**Deployment**](#deployment)
-15. [**Wireframese**](#wireframes)
-16. [**Credits**](#credits)
-17. [**Acknowledgements**](#acknowledgements)
+11. [**register**](#register)
+12. [**Technologies Used**](#technologies-used)
+13. [**Testing**](#testing)
+14. [**Bugs**](#bugs)
+15. [**Deployment**](#deployment)
+16. [**Wireframese**](#wireframes)
+17. [**Credits**](#credits)
+18. [**Acknowledgements**](#acknowledgements)
 
 ## User Experience
 
@@ -97,7 +97,7 @@ While lohgging in, as an user it will show "Add Recipe" to create, delete and up
 
 ## Features Left to Implement
 
-- A future release will include upvoting to rate recipes and create a ranking.
+- A future release will include upvoting to rate recipes and create a ranking of most liked.
 
 ## Technologies Used
 
@@ -134,7 +134,7 @@ While lohgging in, as an user it will show "Add Recipe" to create, delete and up
 ### Travis
 #### How to set up Travis
 - Went to Travis-ci.com and Sign up with GitHub.
-- Accept the Authorization of Travis CI. You’ll be redirected to GitHub. F
+- Accept the Authorization of Travis CI. You’ll be redirected to GitHub. 
 - Click on profile picture in the top right of Travis Dashboard, click Settings and then the green Activate button, and select the repositories to use with Travis CI.
 
 #### unittest
@@ -194,7 +194,7 @@ In order to do this is followed the below steps:
 
 Wireframes created in Balsamiq:
 
-You can find the wireframes [here](https://github.com/FabiBrachetta/mongocho/blob/master/wireframes/mongocho-mockup.png).
+You can find the wireframes [here](https://github.com/FabiBrachetta/cookio/blob/master/wireframes/cookio-wireframes.png).
 
 # Credits
 
